@@ -748,6 +748,7 @@ crucible
 cruise
 crust
 crystal
+cry
 cube
 cuckoo
 cucumber
@@ -2061,6 +2062,7 @@ thirst
 throat
 throne
 thug
+merch
 thumb
 thunder
 thunderstorm

@@ -26,7 +26,6 @@ def TryWord(driver, word):
     try:
         inputElement = driver.find_element(By.XPATH, "//input[@placeholder='Type your guess here...']")
         inputElement.send_keys(word)
-        sleep(1)
         inputElement.send_keys(Keys.ENTER)
     except:
         return
@@ -50,6 +49,12 @@ def CheckPossibilityOfWord(driver, HintWord):
                 return
     return (0)
 
+def CheckEnd(driver):
+    Waiting = driver.find_element(By.XPATH, "//div[@class='description waiting']")
+    if (Waiting.text == "WAITING"):
+        with open("AllReadyTest.txt", "w") as f:
+            f.write("")
+
 def PlayGame(driver):
     print("Waiting for game to start")
     wait = WebDriverWait(driver, 15)
@@ -66,6 +71,7 @@ def PlayGame(driver):
                     continue
                 temp += HintWord[i]
             CheckPossibilityOfWord(driver, temp)
+            CheckEnd(driver)
             sleep(1)
         except:
             sleep(1)
